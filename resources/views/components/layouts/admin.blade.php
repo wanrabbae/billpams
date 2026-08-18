@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $title ?? 'Admin Dashboard - HIPPAMS' }}</title>
+    <title>{{ $title ?? 'Admin Dashboard - BILLPAM' }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -13,7 +13,7 @@
     <!-- Sidebar -->
     <aside class="w-64 bg-slate-900 text-white flex flex-col hidden md:flex h-full shadow-lg">
         <div class="h-16 flex items-center px-6 border-b border-slate-800">
-            <span class="text-xl font-bold tracking-tight text-blue-400">HIPPAMS</span>
+            <span class="text-xl font-bold tracking-tight text-blue-400">BILLPAM</span>
             <span class="ml-2 text-xs font-medium text-slate-400 bg-slate-800 py-1 px-2 rounded">Tenant</span>
         </div>
         <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
@@ -75,7 +75,7 @@
         <!-- Header Mobile / Topbar -->
         <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6 border-b border-slate-200 z-10">
             <div class="md:hidden">
-                <span class="text-xl font-bold text-blue-700">HIPPAMS</span>
+                <span class="text-xl font-bold text-blue-700">BILLPAM</span>
             </div>
             <div class="hidden md:block">
                 <h2 class="text-lg font-semibold text-slate-800">{{ $header ?? '' }}</h2>

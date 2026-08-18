@@ -21,7 +21,7 @@
     <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 max-w-3xl">
         <h3 class="text-lg font-bold text-slate-800 mb-4">Selamat Datang, Super Admin (Faisal Group)</h3>
         <p class="text-slate-600 mb-4">
-            Ini adalah pusat kendali utama untuk platform HIPPAMS SaaS. Dari sini, Anda mengendalikan seluruh sistem. 
+            Ini adalah pusat kendali utama untuk platform BILLPAMS SaaS. Dari sini, Anda mengendalikan seluruh sistem. 
             Data yang disajikan di level ini melintasi batas (cross-tenant), sehingga Anda dapat memantau skala dari seluruh organisasi pengguna.
         </p>
         <div class="flex flex-wrap gap-4 mt-6">

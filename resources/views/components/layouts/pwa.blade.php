@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>{{ $title ?? 'HIPPAMS Mobile' }}</title>
+    <title>{{ $title ?? 'BILLPAMS Mobile' }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         /* Hide scrollbar for PWA feel */
@@ -14,10 +14,13 @@
 
     <!-- Top Bar -->
     <header class="bg-blue-700 text-white flex items-center justify-between px-4 h-14 shadow-md z-10 shrink-0">
-        <div class="font-semibold text-lg">{{ $header ?? 'HIPPAMS' }}</div>
+        <div class="font-semibold text-lg flex items-center">
+            <img src="{{ asset('logo_billpam.png') }}" alt="Logo" class="h-6 w-auto mr-2 brightness-0 invert">
+            {{ $header ?? 'BILLPAMS' }}
+        </div>
         <div>
             <!-- Logout Icon -->
-            <form action="#" method="POST" class="inline">
+            <form action="{{ route('logout') }}" method="POST" class="inline">
                 @csrf
                 <button type="submit" class="p-2 -mr-2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

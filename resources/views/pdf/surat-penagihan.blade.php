@@ -24,7 +24,7 @@
 <body>
 
     <div class="kop-surat">
-        <h1>PENGELOLA AIR BERSIH (HIPPAMS)</h1>
+        <h1>PENGELOLA AIR BERSIH (BILLPAMS)</h1>
         <h1>{{ strtoupper($tenant->name) }}</h1>
         <p>{{ $tenant->address }}, {{ $tenant->village }}, Kec. {{ $tenant->district }}</p>
         <p>{{ $tenant->regency }}, Provinsi {{ $tenant->province }}</p>
@@ -49,7 +49,7 @@
         <p>Dengan hormat,</p>
         
         @if($jenis === 'teguran')
-            <p>Berdasarkan catatan administrasi kami, Bapak/Ibu sampai dengan saat ini belum melunasi tagihan rekening air selama <strong>{{ $tunggakan_bulan }} bulan</strong> berturut-turut. Kami memohon kerjasama Bapak/Ibu untuk segera menyelesaikan tunggakan tersebut guna kelancaran operasional HIPPAMS.</p>
+            <p>Berdasarkan catatan administrasi kami, Bapak/Ibu sampai dengan saat ini belum melunasi tagihan rekening air selama <strong>{{ $tunggakan_bulan }} bulan</strong> berturut-turut. Kami memohon kerjasama Bapak/Ibu untuk segera menyelesaikan tunggakan tersebut guna kelancaran operasional BILLPAMS.</p>
         @else
             <p>Berdasarkan catatan kami dan Surat Teguran yang telah dikirimkan sebelumnya, Bapak/Ibu belum melunasi tunggakan rekening air selama <strong>{{ $tunggakan_bulan }} bulan</strong>. Sesuai dengan peraturan yang berlaku, maka dengan berat hati kami memberitahukan bahwa sambungan air bersih ke rumah Bapak/Ibu akan <strong>DICABUT SEMENTARA</strong> oleh petugas lapangan kami.</p>
         @endif
@@ -94,7 +94,7 @@
 
     <div class="ttd clearfix">
         <div class="ttd-box">
-            Pengurus HIPPAMS<br>
+            Pengurus BILLPAMS<br>
             <strong>{{ $tenant->name }}</strong>
             <div class="ttd-space"></div>
             ( _____________________ )<br>

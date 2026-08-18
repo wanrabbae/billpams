@@ -172,7 +172,7 @@
             const LF = '\n';
 
             let struk = INIT + CENTER + BOLD_ON;
-            struk += 'HIPPAMS - ' + tenant.name + LF;
+            struk += 'BILLPAMS - ' + tenant.name + LF;
             struk += BOLD_OFF + tenant.address + LF;
             struk += '================================' + LF;
             struk += BOLD_ON + 'BUKTI PEMBAYARAN' + BOLD_OFF + LF;

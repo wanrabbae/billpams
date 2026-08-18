@@ -43,6 +43,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard', \App\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
         Route::get('/pelanggan', \App\Livewire\Admin\Pelanggan\Index::class)->name('admin.pelanggan.index');
         Route::get('/pelanggan/{id}/kartu', [\App\Http\Controllers\CardController::class, 'cetak'])->name('admin.pelanggan.kartu');
+        
+        // Laporan Export
+        Route::get('/keuangan/kas/export/excel', [\App\Http\Controllers\ReportController::class, 'exportKasExcel'])->name('admin.keuangan.kas.export.excel');
+        Route::get('/keuangan/kas/export/pdf', [\App\Http\Controllers\ReportController::class, 'exportKasPdf'])->name('admin.keuangan.kas.export.pdf');
+
         Route::get('/tarif', \App\Livewire\Admin\Tarif\Index::class)->name('admin.tarif.index');
         Route::get('/meter/catat', \App\Livewire\Admin\Meter\Create::class)->name('admin.meter.create');
         Route::get('/penagihan', \App\Livewire\Admin\Penagihan\Index::class)->name('admin.penagihan.index');

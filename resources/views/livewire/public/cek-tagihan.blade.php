@@ -1,7 +1,7 @@
 <div class="max-w-xl mx-auto py-12 px-4 sm:px-6">
-    <div class="text-center mb-10">
-        <h1 class="text-3xl font-bold text-blue-700 tracking-tight">HIPPAMS</h1>
-        <p class="text-slate-500 mt-2">Portal Publik Pengecekan Tagihan Air</p>
+    <div class="text-center mb-10 flex flex-col items-center">
+        <img src="{{ asset('logo_billpam.png') }}" alt="BILLPAMS Logo" class="h-16 w-auto mb-2 object-contain drop-shadow-sm">
+        <p class="text-slate-500">Portal Publik Pengecekan Tagihan Air</p>
     </div>
 
     <!-- Form Search -->
