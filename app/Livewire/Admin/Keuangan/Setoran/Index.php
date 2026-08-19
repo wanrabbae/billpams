@@ -22,6 +22,7 @@ class Index extends Component
 
     public function terimaSetoran($id)
     {
+        abort_if(\Auth::user()->role === 'pengawas', 403, 'Akses Read-Only');
         DB::beginTransaction();
         try {
             $setoran = Setoran::where('id', $id)

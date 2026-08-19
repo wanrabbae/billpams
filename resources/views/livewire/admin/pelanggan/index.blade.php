@@ -2,14 +2,14 @@
     <div class="flex justify-between items-center mb-6">
         <h2 class="text-xl font-bold text-slate-800">Master Data Pelanggan</h2>
         <div class="flex space-x-2 items-center">
-            <form wire:submit="import" class="flex items-center space-x-2">
+            @if(Auth::user()->role !== "pengawas")<form wire:submit="import" class="flex items-center space-x-2">
                 <input type="file" wire:model="importFile" class="text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" accept=".xlsx,.xls,.csv" required>
                 <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm transition" wire:loading.attr="disabled">
                     <span wire:loading.remove wire:target="import">Import Excel</span>
                     <span wire:loading wire:target="import">Mengimpor...</span>
                 </button>
             </form>
-            <button wire:click="openModal" class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg text-sm transition">+ Tambah Pelanggan</button>
+            </form><button wire:click="openModal" class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg text-sm transition">+ Tambah Pelanggan</button>@endif
         </div>
     </div>
     
@@ -79,8 +79,8 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <a href="{{ route('admin.pelanggan.kartu', $p->id) }}" target="_blank" class="text-emerald-600 hover:text-emerald-900 mr-3">Cetak QR</a>
-                            <button wire:click="openModal({{ $p->id }})" class="text-blue-600 hover:text-blue-900 mr-3">Edit</button>
-                            <button wire:click="delete({{ $p->id }})" class="text-red-600 hover:text-red-900" onclick="confirm('Yakin hapus pelanggan?') || event.stopImmediatePropagation()">Hapus</button>
+                            @if(Auth::user()->role !== "pengawas")<button wire:click="openModal({{ $p->id }})" class="text-blue-600 hover:text-blue-900 mr-3">Edit</button>
+                            <button wire:click="delete({{ $p->id }})" class="text-red-600 hover:text-red-900" onclick="confirm('Yakin hapus pelanggan?') || event.stopImmediatePropagation()">Hapus</button>@endif
                         </td>
                     </tr>
                     @empty

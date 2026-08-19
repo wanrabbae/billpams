@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Admin\Tarif;
 
+use Illuminate\Support\Facades\Auth;
+
 use Livewire\Component;
 use App\Models\Tarif;
 use App\Services\TenantManager;
@@ -56,6 +58,7 @@ class Index extends Component
 
     public function save()
     {
+        abort_if(\Auth::user()->role === 'pengawas', 403, 'Akses Read-Only');
         $this->validate([
             'jenis_pelanggan' => 'required|in:umum,sosial,industri',
             'tarif' => 'required|numeric|min:0',

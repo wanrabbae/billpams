@@ -56,6 +56,7 @@ class Create extends Component
 
     public function save()
     {
+        abort_if(\Auth::user()->role === 'pengawas', 403, 'Akses Read-Only');
         $this->validate([
             'pelanggan_id' => 'required|exists:pelanggans,id',
             'periode' => 'required',

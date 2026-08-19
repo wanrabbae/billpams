@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Admin\Penagihan;
 
+use Illuminate\Support\Facades\Auth;
+
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Pelanggan;

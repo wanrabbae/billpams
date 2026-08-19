@@ -15,6 +15,9 @@
         @endif
 
         <form wire:submit="save">
+        @if(Auth::user()->role === "pengawas")
+            <div class="mb-4 bg-orange-100 text-orange-700 p-3 rounded text-sm font-medium border border-orange-200">ℹ️ Anda masuk sebagai Pengawas (Read-Only). Anda tidak dapat menyimpan data meter.</div>
+        @endif
             <div class="space-y-4">
                 
                 <div>

@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Admin\Pelanggan;
 
+use Illuminate\Support\Facades\Auth;
+
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
@@ -53,6 +55,8 @@ class Index extends Component
 
     public function save()
     {
+        abort_if(\Auth::user()->role === 'pengawas', 403, 'Akses Read-Only');
+        abort_if(\Auth::user()->role === 'pengawas', 403, 'Akses Read-Only');
         $this->validate([
             'nama' => 'required|string|max:255',
             'alamat' => 'required|string',
@@ -91,11 +95,13 @@ class Index extends Component
 
     public function delete($id)
     {
+        abort_if(\Auth::user()->role === 'pengawas', 403, 'Akses Read-Only');
         Pelanggan::find($id)?->delete();
     }
 
     public function import()
     {
+        abort_if(\Auth::user()->role === 'pengawas', 403, 'Akses Read-Only');
         $this->validate([
             'importFile' => 'required|mimes:xlsx,xls,csv|max:2048',
         ]);
