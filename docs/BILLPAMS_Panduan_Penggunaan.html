@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buku Panduan - BILLPAMS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1d4ed8;
+            --primary-light: #eff6ff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #f8fafc;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px 60px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        h1 { font-size: 2.5rem; text-align: center; }
+        h2 { font-size: 1.5rem; border-bottom: 2px solid var(--primary-light); padding-bottom: 0.5rem; }
+        
+        p { margin-bottom: 1rem; }
+        ul { margin-bottom: 1rem; padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+
+        /* Cover Page */
+        .cover {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .cover h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .cover p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+        }
+
+        .cover .date {
+            margin-top: 4rem;
+            font-weight: 500;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        
+        th, td {
+            border: 1px solid var(--border);
+            padding: 12px 16px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Callouts / Alerts */
+        .alert {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 16px;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .alert strong {
+            color: var(--primary);
+        }
+
+        .tag {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Print Specifics */
+        @media print {
+            body { background-color: white; }
+            .container { box-shadow: none; padding: 0; max-width: 100%; }
+            .page-break { page-break-before: always; }
+            .cover { height: 100vh; }
+            
+            /* Enforce background colors on print */
+            th { 
+                background-color: var(--primary) !important; 
+                -webkit-print-color-adjust: exact;
+                color: white !important;
+            }
+            .alert { 
+                background-color: var(--primary-light) !important;
+                -webkit-print-color-adjust: exact;
+            }
+            .tag {
+                background-color: var(--primary-light) !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+        
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 6px -1px rgba(29, 78, 216, 0.4);
+        }
+        @media print { .print-btn { display: none; } }
+    </style>
+</head>
+<body>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Cetak PDF</button>
+
+    <div class="container">
+        
+        <!-- COVER PAGE -->
+        <div class="cover">
+            <!-- Jika logo sudah live, ganti src dengan URL absolut logo -->
+            <img src="https://billpam.com/logo_billpam.png" alt="Logo BILLPAMS" style="height: 80px; margin-bottom: 2rem;">
+            <h1>BILLPAMS</h1>
+            <p>Sistem Manajemen Tagihan & Keuangan HIPPAM/PAMSIMAS</p>
+            <p style="margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto; font-size: 1rem;">
+                Platform Multi-Tenant SaaS Terintegrasi untuk Pencatatan Meter, Penagihan Otomatis, Aplikasi Kasir (PWA), dan Buku Kas Umum.
+            </p>
+            <div class="date">
+                Dokumentasi & Panduan Pengujian<br>
+                Agustus 2026
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- SECTION 1 -->
+        <h2>1. Informasi Akses Sistem</h2>
+        <p>Aplikasi ini dapat diakses secara langsung melalui Browser (Chrome/Safari) di PC, Laptop, maupun Smartphone tanpa perlu instalasi dari Play Store.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Hak Akses (Role)</th>
+                    <th>URL Akses</th>
+                    <th>Fungsi Utama</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Super Admin</strong></td>
+                    <td>https://billpam.com/super/login</td>
+                    <td>Pemilik Produk (Anda). Mendaftarkan Desa/HIPPAM baru, menagih langganan SaaS.</td>
+                </tr>
+                <tr>
+                    <td><strong>Admin Desa & Bendahara</strong></td>
+                    <td>https://billpam.com/login</td>
+                    <td>Mengelola warga, tarif air, buku kas umum, dan membuat tagihan bulanan.</td>
+                </tr>
+                <tr>
+                    <td><strong>Petugas Lapangan</strong></td>
+                    <td>https://billpam.com/login</td>
+                    <td>Membuka lewat HP (PWA). Catat meter, scan QR pelanggan, cetak struk Bluetooth.</td>
+                </tr>
+                <tr>
+                    <td><strong>Warga (Publik)</strong></td>
+                    <td>https://billpam.com/</td>
+                    <td>Cek tagihan air mandiri hanya dengan memasukkan Nomor Pelanggan.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="alert">
+            <strong>Catatan Pengujian:</strong> Silakan buat beberapa akun contoh dari panel Super Admin untuk mendemonstrasikan sistem ini kepada Klien.
+        </div>
+
+        <!-- SECTION 2 -->
+        <h2>2. Alur Penggunaan Dasar (Workflow)</h2>
+        <p>Untuk menguji sistem secara menyeluruh dari awal (hulu) hingga akhir (hilir), ikuti alur 6 tahap berikut:</p>
+
+        <h3>Tahap 1: Pendaftaran Desa Baru (Super Admin)</h3>
+        <ul>
+            <li>Login ke <strong>Panel Super Admin</strong>.</li>
+            <li>Buka menu <span class="tag">Manajemen Tenant</span>, klik Tambah Tenant.</li>
+            <li>Masukkan nama HIPPAM desa (misal: "HIPPAM Tirta Makmur").</li>
+            <li>Sistem akan secara otomatis membuatkan akun <em>Admin Pertama</em> untuk desa tersebut. Berikan email dan password tersebut kepada Pengelola Desa.</li>
+        </ul>
+
+        <h3>Tahap 2: Pengaturan Tarif & Warga (Admin Desa)</h3>
+        <ul>
+            <li>Login menggunakan akun Admin Desa yang telah dibuat.</li>
+            <li>Buka menu <span class="tag">Tarif Air</span>. Tambahkan tarif dasar per m³ (Umum, Sosial, Industri). Untuk kategori <strong>Sosial</strong>, batas gratis 15 m³ akan terhitung otomatis!</li>
+            <li>Buka menu <span class="tag">Pelanggan</span>. Tambahkan data warga secara manual atau gunakan fitur <strong>Import Excel</strong>.</li>
+            <li>Klik tombol <strong>Cetak Kartu QR</strong> untuk mencetak ID Warga yang nanti bisa ditempel di meteran rumah warga.</li>
+        </ul>
+
+        <h3>Tahap 3: Pencatatan Meteran Air (Petugas / Admin)</h3>
+        <ul>
+            <li>Buka menu <span class="tag">Catat Meter</span>.</li>
+            <li>Petugas mendatangi rumah warga, memasukkan jumlah kubikasi meteran terbaru.</li>
+            <li>Sistem akan otomatis menghitung <em>Pemakaian = (Meter Akhir - Meter Awal)</em>.</li>
+            <li>Saat tombol <strong>Simpan</strong> ditekan, Sistem Billing secara pintar akan langsung meng-generate nilai Tagihan Rupiah berdasarkan jenis tarif pelanggan.</li>
+        </ul>
+
+        <div class="page-break"></div>
+
+        <h3>Tahap 4: Pembayaran & Cetak Struk (PWA Mobile)</h3>
+        <ul>
+            <li>Petugas menggunakan <em>Smartphone</em>, membuka web, dan Login.</li>
+            <li>Sistem akan mendeteksi HP dan menampilkan mode <strong>PWA (Mobile App)</strong>. Petugas bisa memunculkannya ke Layar Utama (*Add to Home Screen*).</li>
+            <li>Buka menu <span class="tag">Kasir / Bayar</span>. Petugas dapat menyalakan Kamera HP untuk melakukan <strong>Scan QR Code</strong> milik warga.</li>
+            <li>Setelah tagihan warga muncul, klik <strong>Bayar</strong>.</li>
+            <li>Petugas dapat menyalakan Bluetooth HP, menghubungkan ke Printer Thermal (58mm/80mm), lalu menekan tombol <strong>Cetak Struk</strong>.</li>
+        </ul>
+
+        <h3>Tahap 5: Validasi Setoran Uang (Bendahara)</h3>
+        <ul>
+            <li>Di penghujung hari, Petugas menyetorkan uang tunai hasil tagihan ke meja Bendahara.</li>
+            <li>Petugas membuka PWA, masuk ke menu <span class="tag">Setoran</span>, dan menekan "Setor Uang ke Bendahara".</li>
+            <li>Bendahara masuk melalui PC, membuka menu <span class="tag">Validasi Setoran</span>.</li>
+            <li>Jika uang tunai sesuai dengan laporan aplikasi, Bendahara menekan tombol <strong>Terima</strong>. Uang tersebut otomatis masuk sebagai <em>Pemasukan</em> di Buku Kas.</li>
+        </ul>
+
+        <h3>Tahap 6: Laporan Keuangan (Bendahara)</h3>
+        <ul>
+            <li>Buka menu <span class="tag">Buku Kas Umum</span>.</li>
+            <li>Seluruh aliran uang tagihan yang telah divalidasi akan masuk secara otomatis.</li>
+            <li>Bendahara juga dapat menginput Pengeluaran operasional (seperti beli pipa, bayar listrik pompa).</li>
+            <li>Di akhir bulan, Bendahara menekan tombol <strong>Export PDF</strong> atau <strong>Excel</strong> untuk mencetak Laporan Pertanggungjawaban Keuangan yang rapi.</li>
+        </ul>
+
+        <!-- SECTION 3 -->
+        <h2>3. Fitur Pendukung Utama</h2>
+        
+        <h3>A. Proteksi Pengawas (Read-Only)</h3>
+        <p>Bagi perangkat desa atau Kepala Desa yang hanya ingin mengontrol tanpa mengubah data, dapat diberikan peran (Role) <strong>Pengawas</strong>. Sistem secara otomatis menyembunyikan seluruh tombol mutasi (Tambah/Edit/Hapus) sehingga data dijamin 100% aman dari perubahan tidak disengaja.</p>
+
+        <h3>B. Penagihan & Surat Teguran</h3>
+        <p>Pada menu <span class="tag">Eksekusi Penagihan</span>, Admin dapat melacak siapa saja warga yang menunggak 1 bulan, 2 bulan, atau 3 bulan. Sistem menyediakan tombol instan untuk mencetak <strong>Surat Teguran (PDF)</strong> hingga Surat Perintah Pencabutan Meteran.</p>
+
+        <h3>C. Isolasi Data (Multi-Tenant)</h3>
+        <p>Platform ini dirancang dengan keamanan basis data modern. Desa A tidak akan pernah bisa melihat data keuangan maupun daftar pelanggan Desa B, meskipun mereka berada di dalam satu aplikasi BILLPAMS yang sama.</p>
+
+        <div style="margin-top: 50px; text-align: center; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid #eee; padding-top: 20px;">
+            &copy; 2026 BILLPAMS SaaS Solution. All Rights Reserved.
+        </div>
+
+    </div>
+
+</body>
+</html>

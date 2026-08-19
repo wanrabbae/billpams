@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buku Panduan Resmi - BILLPAMS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1d4ed8;
+            --primary-light: #eff6ff;
+            --text-dark: #0f172a;
+            --text-normal: #334155;
+            --border: #cbd5e1;
+            --bg-gray: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-normal); line-height: 1.6; background-color: var(--bg-gray); }
+        .container { max-width: 210mm; margin: 0 auto; background: white; padding: 20mm; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        
+        h1, h2, h3, h4 { color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.75rem; font-weight: 600; line-height: 1.2; }
+        h1 { font-size: 2.25rem; text-align: center; }
+        h2 { font-size: 1.5rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+        h3 { font-size: 1.25rem; color: var(--text-dark); margin-top: 1.5rem; }
+        h4 { font-size: 1.1rem; color: var(--text-dark); }
+        
+        p { margin-bottom: 1rem; text-align: justify; }
+        ul, ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        
+        table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.9rem; }
+        th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+        th { background-color: var(--primary); color: white; }
+        tr:nth-child(even) { background-color: var(--bg-gray); }
+        
+        .cover { height: calc(100vh - 40mm); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .cover h1 { font-size: 3rem; margin-bottom: 1rem; text-transform: uppercase; }
+        .cover h2 { font-size: 1.5rem; border: none; color: var(--text-normal); font-weight: 400; margin-bottom: 2rem; }
+        .cover .version { margin-top: 4rem; font-weight: 500; font-size: 1.1rem; }
+        
+        .page-break { page-break-before: always; }
+        
+        .alert { background-color: var(--primary-light); border-left: 4px solid var(--primary); padding: 16px; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+        .alert strong { color: var(--primary); }
+        
+        .badge { background-color: var(--primary-light); color: var(--primary); padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; border: 1px solid var(--primary); }
+        .step-box { background-color: var(--bg-gray); border: 1px solid var(--border); padding: 15px; border-radius: 6px; margin-bottom: 1rem; }
+        
+        @media print {
+            body { background-color: white; }
+            .container { box-shadow: none; padding: 0; max-width: 100%; }
+            .cover { height: 100vh; }
+            th { background-color: var(--primary) !important; color: white !important; -webkit-print-color-adjust: exact; }
+            .alert { background-color: var(--primary-light) !important; -webkit-print-color-adjust: exact; }
+            .badge, .step-box { -webkit-print-color-adjust: exact; }
+            a { text-decoration: none; color: inherit; }
+        }
+        
+        .print-btn { position: fixed; top: 20px; right: 20px; background-color: var(--primary); color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        @media print { .print-btn { display: none; } }
+    </style>
+</head>
+<body>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Simpan / Cetak PDF</button>
+
+    <div class="container">
+        
+        <!-- COVER PAGE -->
+        <div class="cover">
+            <img src="https://billpam.com/logo_billpam.png" alt="Logo BILLPAMS" style="height: 250px; margin-bottom: 2rem;">
+            <h1>Buku Panduan Penggunaan<br>Software</h1>
+            <h2>Platform Manajemen Tagihan Air & Keuangan<br>(HIPPAM / PAMSIMAS) Terintegrasi</h2>
+            
+            <div class="version">
+                <strong>Versi Dokumen:</strong> 1.0 (Agustus 2026)<br>
+                <strong>Produk:</strong> BILLPAMS SaaS Platform<br>
+                <strong>URL Sistem:</strong> https://billpam.com
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- DAFTAR ISI (Manual) -->
+        <h2>Daftar Isi</h2>
+        <div style="line-height: 2;">
+            <strong>BAB 1: Pendahuluan</strong><br>
+            <strong>BAB 2: Manajemen Hak Akses (Roles)</strong><br>
+            <strong>BAB 3: Panduan Modul Super Admin (Pemilik Sistem)</strong><br>
+            <strong>BAB 4: Panduan Modul Admin Desa & Bendahara</strong><br>
+            <strong>BAB 5: Panduan Modul Petugas Lapangan (PWA Mobile)</strong><br>
+            <strong>BAB 6: Panduan Cek Tagihan Warga (Portal Publik)</strong><br>
+            <strong>BAB 7: Persyaratan Perangkat Keras</strong><br>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- BAB 1 -->
+        <h2>BAB 1: Pendahuluan</h2>
+        <h3>1.1 Apa itu BILLPAMS?</h3>
+        <p><strong>BILLPAMS</strong> adalah sistem perangkat lunak berbasis Cloud (SaaS - Software as a Service) yang dirancang khusus untuk mendigitalkan seluruh proses operasional pengelola air bersih mandiri di tingkat desa, seperti HIPPAM (Himpunan Penduduk Pemakai Air Minum) atau PAMSIMAS.</p>
+        <p>Sistem ini mengadopsi arsitektur <em>Multi-Tenant</em>, yang berarti satu sistem besar ini dapat melayani puluhan hingga ratusan desa berbeda secara bersamaan, di mana masing-masing desa memiliki ruang penyimpanan dan basis data yang terisolasi 100% secara aman tanpa saling tumpang tindih.</p>
+
+        <h3>1.2 Fitur Unggulan</h3>
+        <ul>
+            <li><strong>Penagihan Otomatis (Billing Engine):</strong> Sistem otomatis menghitung nilai rupiah berdasarkan kubikasi meteran dan jenis tarif (Umum/Sosial/Industri).</li>
+            <li><strong>PWA Kasir Mobile:</strong> Petugas lapangan dapat mencatat meter dan menagih pembayaran layaknya menggunakan aplikasi Android/iOS, lengkap dengan pemindai QR Code.</li>
+            <li><strong>Integrasi Printer Bluetooth:</strong> Mendukung pencetakan struk pembayaran seketika di depan rumah pelanggan.</li>
+            <li><strong>Buku Kas Otomatis:</strong> Seluruh uang pembayaran tagihan langsung bermuara ke dalam laporan Buku Kas Bendahara yang dapat dicetak (PDF/Excel).</li>
+        </ul>
+
+        <!-- BAB 2 -->
+        <h2>BAB 2: Manajemen Hak Akses (Roles)</h2>
+        
+
+        <h3>2.1 Kredensial Login Default (Data Demo / Instalasi)</h3>
+        <p>Berdasarkan data awal instalasi (<i>Database Seeder</i>), Anda dapat menggunakan akun-akun berikut untuk menguji coba berbagai fitur sistem tanpa perlu membuatnya dari nol. Seluruh akun di bawah (kecuali Super Admin) otomatis tergabung pada satu desa bernama <strong>HIPPAM Sumber Urip</strong>.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Peran</th>
+                    <th>Nama Akun</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Link Akses</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Super Admin</strong></td>
+                    <td>Super Administrator</td>
+                    <td><code>superadmin</code></td>
+                    <td><code>password</code></td>
+                    <td>https://billpam.com/login</td>
+                </tr>
+                <tr>
+                    <td><strong>Admin Tenant</strong></td>
+                    <td>Admin Sumber Urip</td>
+                    <td><code>admin_su</code></td>
+                    <td><code>password</code></td>
+                    <td>https://billpam.com/login</td>
+                </tr>
+                <tr>
+                    <td><strong>Bendahara</strong></td>
+                    <td>Siti Bendahara</td>
+                    <td><code>bendahara_su</code></td>
+                    <td><code>password</code></td>
+                    <td>https://billpam.com/login</td>
+                </tr>
+                <tr>
+                    <td><strong>Petugas</strong></td>
+                    <td>Budi Petugas Catat</td>
+                    <td><code>petugas_su</code></td>
+                    <td><code>password</code></td>
+                    <td>https://billpam.com/login</td>
+                </tr>
+                <tr>
+                    <td><strong>Warga (Publik)</strong></td>
+                    <td>Warga Desa</td>
+                    <td><code>-</code></td>
+                    <td><code>-</code></td>
+                    <td>https://billpam.com/cek-tagihan</td>
+            </tbody>
+        </table>
+        
+        <div class="alert">
+            <strong>Catatan Keamanan:</strong> Harap ganti password atau hapus akun-akun demonstrasi di atas apabila sistem sudah mulai digunakan secara resmi oleh masyarakat (Naik ke tahap Production Data Asli).
+        </div>
+        
+        <h3>2.2 Wewenang Masing-Masing Peran</h3>
+<p>Berikut adalah rincian wewenang untuk masing-masing peran di atas serta peran tambahan lainnya:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Peran (Role)</th>
+                    <th>Deskripsi & Wewenang</th>
+                    <th>Link Akses</th>
+                </tr>
+            </thead>
+            <>
+                <tr>
+                    <td><strong>Super Admin</strong></td>
+                    <td>Pemilik Utama sistem SaaS. Bertugas mendaftarkan Tenant/Desa baru, menetapkan paket kapasitas, dan menghentikan layanan (suspend) jika desa telat membayar biaya server.</td>
+                    <td>https://billpam.com/super/login</td>
+                </tr>
+                <tr>
+                    <td><strong>Admin Tenant</strong></td>
+                    <td>Pengurus inti di tingkat desa (misal: Ketua HIPPAM). Memiliki hak penuh untuk menambah warga, mengubah tarif, mencetak QR Code, hingga memanajemen akun petugas.</td>
+                    <td>https://billpam.com/login</td>
+                </tr>
+                <tr>
+                    <td><strong>Bendahara</strong></td>
+                    <td>Fokus pada arus kas (Keuangan). Bertugas menyetujui setoran uang dari petugas, mencatat pengeluaran operasional desa (Buku Kas), dan mencetak laporan bulanan.</td>
+                    <td>https://billpam.com/login</td>
+                </tr>
+                <tr>
+                    <td><strong>Petugas</strong></td>
+                    <td>Pekerja lapangan. Mengakses aplikasi melalui HP (Mobile PWA) untuk mencatat meter, scan QR warga, menagih uang, mencetak struk, dan setor uang ke bendahara.</td>
+                    <td>https://billpam.com/login</td>
+                </tr>
+                <tr>
+                    <td><strong>Pengawas</strong></td>
+                    <td>Kepala Desa atau Badan Pengawas. Hanya bisa melihat <em>(Read-Only)</em> seluruh laporan dan data operasional tanpa bisa mengubah, menambah, atau menghapus data sedikitpun.</td>
+                    <td>https://billpam.com/login</td>
+                </tr>
+                <tr>
+                    <td><strong>Warga (Publik)</strong></td>
+                    <td>Warga desa yang ingin mengecek tagihan air mereka secara mandiri. Tidak perlu login, cukup memasukkan Nomor Pelanggan (Kode ID) di portal publik.</td>
+                    <td>https://billpam.com/cek-tagihan</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="page-break"></div>
+
+        <!-- BAB 3 -->
+        <h2>BAB 3: Panduan Modul Super Admin (Pemilik Sistem)</h2>
+        <p>Modul ini dirancang khusus untuk Anda (Pemilik Software) dalam menjalankan bisnis penyewaan aplikasi (SaaS) kepada pengurus desa-desa.</p>
+
+        <h3>3.1 Manajemen Paket Langganan</h3>
+        <p>Sebelum mendaftarkan desa, Anda harus menentukan paket langganan yang tersedia.</p>
+        <div class="step-box">
+            <ol>
+                <li>Pilih menu <strong>Paket SaaS</strong> di bilah navigasi kiri.</li>
+                <li>Klik tombol <span class="badge">+ Tambah Paket</span>.</li>
+                <li>Masukkan rincian seperti Nama Paket (Misal: "Paket Dasar"), Harga Berlangganan, Batas Maksimal Pelanggan (misal: 1000 warga), dan Batas Maksimal Akun Admin.</li>
+                <li>Klik <strong>Simpan</strong>.</li>
+            </ol>
+        </div>
+
+        <h3>3.2 Pendaftaran HIPPAM/Desa Baru (Tenant)</h3>
+        <p>Jika ada desa baru yang ingin menggunakan aplikasi Anda, daftarkan mereka dari sini.</p>
+        <div class="step-box">
+            <ol>
+                <li>Buka menu <strong>Daftar Tenant</strong>.</li>
+                <li>Klik tombol <span class="badge">+ Tambah Tenant</span>.</li>
+                <li>Isi nama HIPPAM (Contoh: "HIPPAM Sumber Rejeki"), Alamat, dan pilih Paket SaaS yang mereka beli.</li>
+                <li>Isi data <strong>Admin Pertama</strong> (Nama, Email, dan Password) yang akan diserahkan kepada Ketua HIPPAM desa tersebut.</li>
+                <li>Setelah disimpan, sistem akan langsung membuatkan partisi database terpisah yang aman untuk desa tersebut.</li>
+            </ol>
+        </div>
+
+        <h3>3.3 Suspend / Penghentian Layanan (Billing)</h3>
+        <p>Jika pengelola desa terlambat membayar biaya perpanjangan sewa software kepada Anda, Anda dapat menghentikan akses mereka sementara waktu.</p>
+        <p>Masuk ke menu <strong>Billing SaaS</strong>, temukan tenant yang menunggak, lalu ubah statusnya menjadi <strong>Nonaktif</strong>. Seluruh perangkat desa (admin, bendahara, petugas) tidak akan bisa login sampai status dikembalikan menjadi Aktif.</p>
+
+
+        <div class="page-break"></div>
+
+        <!-- BAB 4 -->
+        <h2>BAB 4: Panduan Modul Admin Desa & Bendahara</h2>
+        <p>Bagian ini adalah panduan bagi perangkat HIPPAM yang bertugas mengelola operasional tata air harian di balai desa. Akses halaman ini melalui portal <code>/login</code> biasa.</p>
+
+        <h3>4.1 Pengaturan Profil HIPPAM</h3>
+        <p>Sebelum mulai, Admin Tenant harus melengkapi profil lembaganya karena data ini akan tercetak di struk pembayaran warga.</p>
+        <ul>
+            <li>Buka menu <strong>Pengaturan Profil</strong>.</li>
+            <li>Unggah Logo HIPPAM resmi.</li>
+            <li>Lengkapi Nama Lengkap, Alamat Balai, dan Nomor Telepon.</li>
+        </ul>
+
+        <h3>4.2 Manajemen Tarif Air Dasar</h3>
+        <p>Sistem ini mendukung pengelompokan jenis pelanggan (Umum, Sosial, Industri) dengan harga yang berbeda.</p>
+        <div class="step-box">
+            <ol>
+                <li>Buka menu <strong>Tarif Air</strong>.</li>
+                <li>Klik <span class="badge">+ Tambah Tarif</span>.</li>
+                <li>Pilih jenis pelanggan (misalnya <strong>Sosial</strong> untuk panti asuhan/masjid).</li>
+                <li>Untuk kategori Sosial, Anda dapat menentukan <strong>Batas Gratis</strong>. Contoh: 15 m³. Maka sistem otomatis menggratiskan tagihan jika meteran berada di bawah atau sama dengan 15 m³.</li>
+                <li>Isi <strong>Tarif Dasar</strong> per m³ dan biaya denda.</li>
+            </ol>
+        </div>
+
+        <h3>4.3 Manajemen Data Warga (Pelanggan)</h3>
+        <p>Menu untuk mendaftarkan rumah-rumah yang berlangganan air.</p>
+        <div class="step-box">
+            <ol>
+                <li>Buka menu <strong>Data Pelanggan</strong>.</li>
+                <li>Untuk memasukkan data satu per satu, klik <span class="badge">+ Tambah Pelanggan</span>. Isi nama, alamat, jenis pelanggan, dan kode pelanggan.</li>
+                <li><strong>Untuk Data Masal:</strong> Anda bisa mengunduh <em>Template Excel</em>, lalu mengisi ratusan nama warga sekaligus di komputer Anda. Setelah itu gunakan fitur <strong>Import Excel</strong> di layar tersebut.</li>
+                <li><strong>Cetak QR Code:</strong> Di sebelah kanan setiap nama warga, terdapat tombol cetak QR Code. Tempelkan kertas cetakan QR Code ini pada meteran air di rumah warga untuk discan oleh Petugas.</li>
+            </ol>
+        </div>
+
+        <h3>4.4 Eksekusi Penagihan & Cetak Teguran</h3>
+        <p>Menu ini sangat penting untuk melacak warga yang menunggak pembayaran berbulan-bulan.</p>
+        <div class="step-box">
+            <ol>
+                <li>Buka menu <strong>Tunggakan & Teguran</strong> (Penagihan).</li>
+                <li>Sistem akan menyajikan daftar warga yang berstatus "Belum Lunas".</li>
+                <li>Pilih warga yang menunggak, lalu Anda bisa mencetak dokumen formal (Format PDF) berupa <strong>Surat Teguran 1</strong>, Surat Teguran 2, hingga Surat Perintah Pencabutan Saluran Air untuk diberikan ke rumah warga.</li>
+            </ol>
+        </div>
+
+        <h3>4.5 Buku Kas Umum (Tugas Bendahara)</h3>
+        <p>Seluruh transaksi yang melibatkan uang keluar masuk desa diatur di sini.</p>
+        <ul>
+            <li><strong>Validasi Setoran:</strong> Saat Petugas pulang kampung membawa uang tunai, mereka menyetorkannya lewat aplikasi HP mereka. Bendahara wajib membuka menu <strong>Setoran Petugas</strong>, mencocokkan jumlah uang fisik, lalu menekan tombol <strong>Terima</strong>.</li>
+            <li><strong>Pemasukan & Pengeluaran Kas:</strong> Uang setoran yang diterima akan langsung terekam di Buku Kas. Bendahara juga bisa menekan <span class="badge">+ Transaksi Baru</span> untuk mencatat pembelian (misal: Beli pipa paralon).</li>
+            <li><strong>Export Laporan:</strong> Di akhir bulan, Bendahara menekan tombol <strong>Export PDF</strong> atau <strong>Export Excel</strong> untuk menghasilkan laporan akuntansi standar yang rapi.</li>
+        </ul>
+
+        <div class="page-break"></div>
+
+        <!-- BAB 5 -->
+        <h2>BAB 5: Panduan Modul Petugas Lapangan (PWA Mobile)</h2>
+        <p>Aplikasi untuk Petugas dirancang menggunakan teknologi PWA (Progressive Web App). Artinya, tampilan dan fungsinya persis seperti aplikasi Android/iPhone, responsif, hemat kuota, dan bisa dipasang ke layar utama HP (Home Screen).</p>
+
+        <h3>5.1 Cara Instalasi PWA di Smartphone</h3>
+        <div class="alert">
+            Tidak perlu mendownload dari Google Play Store / App Store. Ikuti langkah mudah berikut:
+        </div>
+        <ol>
+            <li>Buka browser Google Chrome (Android) atau Safari (iPhone).</li>
+            <li>Ketikkan alamat web aplikasi: <strong>https://billpam.com</strong>, lalu Login menggunakan akun Petugas.</li>
+            <li>Browser akan memunculkan pop-up di bawah layar bertuliskan <strong>"Add BILLPAMS to Home screen"</strong> (Tambahkan ke Layar Utama). Klik <strong>Install</strong>.</li>
+            <li>Jika pop-up tidak muncul, klik ikon Tiga Titik (Menu) di Chrome, lalu pilih <strong>Tambahkan ke Layar Utama</strong>.</li>
+            <li>Tutup browser Anda. Lihat daftar aplikasi di HP Anda, akan ada ikon BILLPAMS yang bisa dibuka seperti aplikasi biasa!</li>
+        </ol>
+
+        <h3>5.2 Catat Meter Keliling</h3>
+        <p>Pekerjaan rutinan di awal bulan untuk mencatat kubikasi meteran air warga.</p>
+        <div class="step-box">
+            <ol>
+                <li>Buka aplikasi BILLPAMS di HP, tekan menu <strong>Catat</strong> di navigasi bawah.</li>
+                <li>Cari nama warga/pelanggan.</li>
+                <li>Sistem otomatis menampilkan Angka Meteran Bulan Lalu. Petugas hanya perlu menginput <strong>Angka Meteran Saat Ini</strong>.</li>
+                <li><em>(Opsional)</em> Petugas bisa memotret fisik meteran air menggunakan kamera HP sebagai bukti.</li>
+                <li>Klik <strong>Simpan</strong>. Sistem secara pintar (Billing Engine) akan menghitung kubikasi terpakai dan langsung memunculkan nominal Rupiah Tagihan untuk warga tersebut detik itu juga.</li>
+            </ol>
+        </div>
+
+        <h3>5.3 Proses Kasir & Mencetak Struk Thermal (Bluetooth)</h3>
+        <p>Pekerjaan menagih uang saat bertemu warga.</p>
+        <div class="step-box">
+            <ol>
+                <li>Ketuk ikon <strong>Bayar</strong> (tombol bulat menonjol di tengah bawah layar HP).</li>
+                <li>Kamera HP akan menyala. Arahkan kamera ke arah kertas <strong>QR Code</strong> yang tertempel di meteran rumah warga.</li>
+                <li>Sistem langsung memunculkan detail nama warga dan nominal yang belum dibayar.</li>
+                <li>Terima uang dari warga, lalu tekan tombol <strong>Bayar Lunas</strong>.</li>
+                <li>Nyalakan Printer Thermal Bluetooth mini yang dibawa petugas, tekan tombol <strong>Cetak Struk</strong> pada layar. Struk bukti pembayaran fisik akan tercetak dan dapat diberikan kepada warga.</li>
+            </ol>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- BAB 6 -->
+        <h2>BAB 6: Panduan Cek Tagihan Warga (Portal Publik)</h2>
+        <p>Fasilitas transparansi untuk seluruh warga desa agar dapat mengecek tagihan air mereka masing-masing dari rumah secara mandiri.</p>
+
+        <div class="step-box">
+            <ol>
+                <li>Warga membuka browser di HP masing-masing dan menuju ke halaman utama: <strong>https://billpam.com</strong></li>
+                <li>Tidak diperlukan pendaftaran akun maupun kata sandi.</li>
+                <li>Warga cukup memasukkan <strong>Nomor Pelanggan</strong> (Kode ID) yang tercetak di stiker meteran atau yang diberikan oleh pengurus RT.</li>
+                <li>Sistem akan memunculkan rincian tagihan bulan berjalan, total kubikasi terpakai, dan status lunas / menunggak secara *Real-Time*.</li>
+            </ol>
+        </div>
+
+        <br>
+
+        <!-- BAB 7 -->
+        <h2>BAB 7: Persyaratan Perangkat Keras (Hardware)</h2>
+        <p>Untuk menunjang kelancaran operasional di lapangan, berikut adalah rekomendasi perangkat yang dibutuhkan:</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Jenis Perangkat</th>
+                    <th>Spesifikasi Rekomendasi</th>
+                    <th>Kegunaan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>PC / Laptop</strong></td>
+                    <td>Minimal RAM 4GB, Windows 10 / Mac OS. Menggunakan browser Google Chrome versi terbaru.</td>
+                    <td>Digunakan di balai desa oleh Admin dan Bendahara untuk manajemen data dan cetak laporan.</td>
+                </tr>
+                <tr>
+                    <td><strong>Smartphone (Petugas)</strong></td>
+                    <td>Minimal RAM 3GB, OS Android 9 ke atas, Kamera berfungsi (minimal 8 MP) untuk membaca QR Code.</td>
+                    <td>Digunakan berkeliling untuk Catat Meter dan Kasir PWA.</td>
+                </tr>
+                <tr>
+                    <td><strong>Printer Kasir (Thermal)</strong></td>
+                    <td>Printer POS Thermal Portabel (Mini) dengan konektivitas <strong>Bluetooth</strong> (Ukuran kertas 58mm).</td>
+                    <td>Digenggam oleh petugas untuk mencetak struk fisik secara nirkabel dari Smartphone.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 60px; text-align: center; color: var(--text-normal); font-size: 0.9rem; border-top: 1px solid var(--border); padding-top: 20px;">
+            <p><strong>Butuh Bantuan Lebih Lanjut?</strong></p>
+            <p>Silakan hubungi Tim Support kami melalui layanan pengguna jika menemukan kendala teknis pada sistem.</p>
+            <p style="margin-top: 10px; color: var(--text-muted);">&copy; 2026 BILLPAMS SaaS Solution. Seluruh Hak Cipta Dilindungi.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
