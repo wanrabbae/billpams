@@ -1,0 +1,22 @@
+{
+    "name": "BILLPAMS Petugas",
+    "short_name": "BILLPAMS",
+    "description": "Aplikasi PWA untuk petugas lapangan mencatat meter air dan tagihan.",
+    "start_url": "/pwa/dashboard",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#1d4ed8",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "/logo_billpam.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/logo_billpam.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
