@@ -23,7 +23,7 @@ class Index extends Component
     // Form modal state
     public $isModalOpen = false;
     public $pelangganId;
-    public $nama, $alamat, $jenis_pelanggan = 'umum', $keterangan, $status = 'aktif';
+    public $nama, $alamat, $jenis_pelanggan = 'umum', $keterangan, $status = 'aktif', $meter_awal = 0;
 
     public function updatingSearch()
     {
@@ -33,7 +33,7 @@ class Index extends Component
     public function openModal($id = null)
     {
         $this->resetValidation();
-        $this->reset(['nama', 'alamat', 'jenis_pelanggan', 'keterangan', 'status', 'pelangganId']);
+        $this->reset(['nama', 'alamat', 'jenis_pelanggan', 'keterangan', 'status', 'pelangganId', 'meter_awal']);
         
         if ($id) {
             $pelanggan = Pelanggan::findOrFail($id);
@@ -56,12 +56,12 @@ class Index extends Component
     public function save()
     {
         abort_if(\Auth::user()->role === 'pengawas', 403, 'Akses Read-Only');
-        abort_if(\Auth::user()->role === 'pengawas', 403, 'Akses Read-Only');
         $this->validate([
             'nama' => 'required|string|max:255',
             'alamat' => 'required|string',
             'jenis_pelanggan' => 'required|in:umum,sosial,industri',
             'status' => 'required|in:aktif,nonaktif,dicabut',
+            'meter_awal' => 'nullable|numeric|min:0'
         ]);
 
         $tenantId = \App\Services\TenantManager::getTenantId();
@@ -78,7 +78,7 @@ class Index extends Component
             }
         }
 
-        Pelanggan::updateOrCreate(
+        $pelanggan = Pelanggan::updateOrCreate(
             ['id' => $this->pelangganId],
             [
                 'nama' => $this->nama,
@@ -89,6 +89,19 @@ class Index extends Component
                 'tenant_id' => $tenantId, // Auto injection
             ]
         );
+
+        // Jika Pelanggan Baru dan ada Meter Awal > 0, buat initial meter
+        if (!$this->pelangganId && $this->meter_awal > 0) {
+            \App\Models\Meter::create([
+                'tenant_id' => $tenantId,
+                'pelanggan_id' => $pelanggan->id,
+                'periode' => date('Y-m', strtotime('-1 month')), // Bulan lalu sbg patokan awal
+                'meter_awal' => 0,
+                'meter_akhir' => $this->meter_awal,
+                'pemakaian' => 0,
+                'petugas_id' => \Auth::id(),
+            ]);
+        }
 
         $this->closeModal();
     }

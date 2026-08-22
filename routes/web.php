@@ -3,12 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Auth\Login;
 
-Route::get('/', function () {
-    return redirect()->route('login');
-});
+Route::get('/', \App\Livewire\Public\CekTagihan::class)->name('public.cek-tagihan');
 
 Route::get('/login', Login::class)->name('login');
-Route::get('/cek-tagihan', \App\Livewire\Public\CekTagihan::class)->name('public.cek-tagihan');
 // Logout
 Route::post('/logout', \App\Livewire\Auth\Logout::class . '@logout')->name('logout');
 
